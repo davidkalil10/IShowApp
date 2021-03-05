@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:ishow_app/BotaoAnimado.dart';
 import 'package:ishow_app/InputCustomizado.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 
@@ -50,7 +51,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
 
-    //timeDilation= 8;
+    timeDilation= 10;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -106,7 +107,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                             padding: EdgeInsets.all(8),
                             decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(20),
                                 boxShadow: [
                                   BoxShadow(
                                       color: Colors.grey[200],
@@ -133,35 +134,9 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     SizedBox(
                       height: 20,
                     ),
-                    AnimatedBuilder(
-                        animation: _animacaoSize,
-                        builder: (context, widget){
-                          return InkWell(
-                            onTap: (){},
-                            child: Container(
-                              width: _animacaoSize.value,
-                              height: 50,
-                              child: Center(
-                                child: Text("Entrar", style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold
-                                ),),
-                              ),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  gradient: LinearGradient(
-                                      colors: [
-                                        Color.fromRGBO(255, 100, 127, 1),
-                                        Color.fromRGBO(255, 123, 145, 1),
-                                      ]
-                                  )
-                              ),
-
-                            ),
-                          );
-                        }
-                    ) ,
+                    BotaoAnimado(
+                      controller: _controller,
+                    ),
                     SizedBox(
                       height: 10,
                     ),
